@@ -13,16 +13,14 @@
 
 
 def twoSum(nums, target):
+    # Assume num in nums is unique
     for i in range(0, len(nums)):
         left = target - nums[i]
 
         others = nums[i+1: len(nums)]
 
         if (left in others):
-            if (nums.index(left) == i):
-                return [i, nums.index(left) + 1]
-            else:
-                return [i, nums.index(left)]
+            return [i, others.index(left) + (i+1)]
 
     return []
 
