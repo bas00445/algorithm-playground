@@ -1,19 +1,18 @@
 def findMostAppearanceInString(string):
-    datas = []
+    collections = {}
 
-    for i in range(0, len(string)):
-        count = 1
-        for j in range(i+1, len(string)):
-            if (string[i] == string[j]):
-                count += 1
+    for s in string:
+        if s not in collections:
+            collections[s] = 1
+        else:
+            collections[s] = collections[s] + 1
 
-        datas.append(count)
+    values = list(collections.values())
+    maxValueIndex = values.index(max(values))
 
-    maxAppear = max(datas)
-    maxIndex = datas.index(maxAppear)
-
-    return string[maxIndex]
+    return list(collections)[maxValueIndex], max(values)
 
 
 if __name__ == "__main__":
-    r = findMostAppearanceInString("HELLOWORLD")
+    r = findMostAppearanceInString("HELLOOOOWORLD")
+    print(r)
