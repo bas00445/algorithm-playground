@@ -14,6 +14,7 @@ def mergeTwoSortedList(listA, listB):
             sortedList.append(listB[j])
             j += 1
 
+    # Handle case length of A or B are not equal
     while i < lenA:
         sortedList.append(listA[i])
         i += 1
@@ -21,6 +22,7 @@ def mergeTwoSortedList(listA, listB):
     while j < lenB:
         sortedList.append(listB[j])
         j += 1
+    # End: Handle case length of A or B are not equal
 
     return sortedList
 
@@ -41,8 +43,11 @@ def mergeSort(array):
 
 
 if __name__ == "__main__":
-    a = [48, 12, 56, 5]
-    b = [8, 9, 45, 51]
+    a = [7, 15, 20]
+    b = [8, 9]
 
-    ans = mergeSort(a)
-    print(ans)
+    res = mergeTwoSortedList(a, b)
+    print(res)
+
+    # ans = mergeSort(a)
+    # print(ans)
